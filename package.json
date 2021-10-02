@@ -1,0 +1,79 @@
+{
+  "name": "@edx/frontend-app-profile",
+  "version": "1.0.0-semantically-released",
+  "description": "User profile micro-frontend for Open edX",
+  "author": "edX",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edx/frontend-app-profile.git"
+  },
+  "scripts": {
+    "build": "fedx-scripts webpack",
+    "deploy": "aws s3 sync dist/ s3://profile.digitallearningsolution.net",
+    "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
+    "is-es5": "es-check es5 ./dist/*.js",
+    "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
+    "snapshot": "fedx-scripts jest --updateSnapshot",
+    "start": "fedx-scripts webpack-dev-server --progress",
+    "test": "fedx-scripts jest --coverage --passWithNoTests"
+  },
+  "bugs": {
+    "url": "https://github.com/edx/frontend-app-profile/issues"
+  },
+  "homepage": "https://github.com/edx/frontend-app-profile#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie 11"
+  ],
+  "dependencies": {
+    "@edx/brand": "file:../brand-openedx",
+    "@edx/frontend-component-footer": "10.1.6",
+    "@edx/frontend-component-header": "^2.3.0",
+    "@edx/frontend-platform": "1.12.4",
+    "@edx/paragon": "16.6.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.36",
+    "@fortawesome/free-brands-svg-icons": "5.15.4",
+    "@fortawesome/free-regular-svg-icons": "5.15.4",
+    "@fortawesome/free-solid-svg-icons": "5.15.4",
+    "@fortawesome/react-fontawesome": "0.1.15",
+    "classnames": "2.3.1",
+    "core-js": "3.16.4",
+    "framer-motion": "^4.1.17",
+    "lodash.camelcase": "4.3.0",
+    "lodash.get": "4.4.2",
+    "lodash.pick": "4.4.0",
+    "lodash.snakecase": "4.1.1",
+    "prop-types": "15.7.2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-redux": "7.2.4",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "redux": "4.1.1",
+    "redux-devtools-extension": "2.13.9",
+    "redux-logger": "3.0.6",
+    "redux-saga": "1.1.3",
+    "redux-thunk": "2.3.0",
+    "regenerator-runtime": "0.13.9",
+    "reselect": "4.0.0",
+    "universal-cookie": "3.1.0",
+    "webpack-dev-server": "^4.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-angular": "13.1.0",
+    "@edx/frontend-build": "8.0.4",
+    "codecov": "3.8.3",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.6",
+    "es-check": "5.2.4",
+    "glob": "7.1.7",
+    "react-test-renderer": "16.14.0",
+    "reactifex": "1.1.1",
+    "redux-mock-store": "1.5.4"
+  }
+}
